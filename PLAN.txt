@@ -1,0 +1,143 @@
+Plan for Breakout Game
+Ryan Fu (rwf11)
+
+/*INTERESTING VARIANTS OF THE BREAKOUT GAME*/
+Worms:
+I thought the Worms variant was an interesting variant because of the variability 
+of power-ups to affect the change of pace in the game. As the power-ups fall, the 
+player must actively make the decision of whether to prioritize the ball (which keeps the player alive)
+or the advantage of enabling a power-up. I would be interested in how to implement these
+temporary changes and control the random drop rate after the ball pops each block. 
+
+Pinball Breakout:
+I liked the pinball breakout variant because of the presence of the pinball additions. 
+I’m curious in how the program reacts to the position of the ball and how the interaction 
+between the ball and a pinball object is coded. I think these small additions add a lot of 
+variety and uniqueness to the game, and I would like to experiment with how these pinball 
+features such as bumpers, holes, and flippers can be implemented. 
+
+I will be choosing to build the WORM breakout version.
+
+A general description of the different levels you intend to build:
+
+/*LEVELS*/
+All levels are created through a file input. 
+
+Level 1: All blocks are arranged in the shape of filled square. This was one of my favorite
+levels as a kid because the strategy involves shooting the ball at the sides so that the ball 
+gets trapped at the top to pop the most blocks. The blocks are compacted and have no space in 
+between them
+	_ _ _ _ _ _ _ _ _ 
+	_ _ _ _ _ _ _ _ _ 
+	_ _ _ _ _ _ _ _ _ 
+	_ _ _ _ _ _ _ _ _ 
+	_ _ _ _ _ _ _ _ _ 
+
+Level 2: Vertically positioned blocks are aligned in a single column. This is applied to the 
+adjacent column but instead the blocks are positioned horizontally. There are spaces between 
+each block in a column and space between each column. This pattern is repeated several times 
+to create the entire level. 
+
+	|   _   |   _   |   _   |   _   |
+	|   _   |   _   |   _   |   _   |
+	|   _   |   _   |   _   |   _   |
+	|   _   |   _   |   _   |   _   |
+	|   _   |   _   |   _   |   _   |
+
+
+Level 3: In this level, there are horizontal and vertical blocks forming three concentric 
+squares with space between each layer. There are no spaces between adjacent blocks.
+
+	_ _ _ _ _ _ _ _ _ _
+	|   _ _ _ _ _ _   |
+	|  |   _ _ _   |  |
+	|  |  |     |  |  |
+	|  |  |_ _ _|  |  |
+	|  |_ _ _ _ _ _|  |
+	|_ _ _ _ _ _ _ _ _|
+
+
+/*BLOCKS*/
+Normal Block: 
+	Block gets destroyed if hit by ball once. 
+	
+Metal Block: 
+	Block cannot be destroyed. The player does not have to destroy a metal block to win the game. 
+	Intended to add more barriers to make it difficult for the ball to hit certain blocks.
+	
+TNT Block: 
+	Block gets destroyed if hit by ball once. If destroyed, all adjacent blocks are destroyed. 
+	
+Brick Block: 
+	Blocks gets destroyed if hit by ball 3 times. 
+
+There is a 0.25 chance of a destroyed block to drop a random power-up. 
+Each level will have a random placement of varying block-types that will be created based on a random algorithm. 
+
+/*POWER UPS*/
+Freeze: 
+	Ball moves at a slower speed
+	
+Lightning: 
+	Ball moves at a faster speed
+
+Extra Life:
+	If acquired, the player receives an extra life	
+	
+Explosion: 
+	Ball explodes into 5 balls 
+	
+Invincible: 
+	Ball will destroy any block it hits for 5 seconds. The ball will not reflect off any blocks, only walls.
+	This can even destroy metal blocks.
+
+/*PADDLE FUNCTIONS*/
+These paddle functions can also be acquired through random falling power-ups from destroyed bricks. 
+Large: 
+	Paddle length increases by a short amount
+	
+Mini: 
+	Paddle length decreases by a short amount
+	
+Warp:
+	Paddle can warp from one side of the screen to the other when it reaches the edge. If acquired, this
+	power-up lasts for the entire level.
+	
+Oil:
+	Paddle moves at a faster speed. 
+
+
+/*CHEAT KEYS*/
+1. “r”
+	If the key “r” is pressed, the game will reset back to level 1 and the game will be restarted
+
+2. “+” 
+	If the “+” key is pressed, the size of the ball increases (up to a maximum size)
+	
+3. “-“ 
+	If the “-“ key is pressed, the size of the ball decreases (down to a minimum size)
+
+4. “spacebar” 
+	If the “spacebar” key is pressed, the game is paused, but the paddle can be moved.
+
+/*STATUS DISPLAY*/
+1. Current Score
+	Current score of the game is displayed at the top right of the screen.
+2. Current Level
+	Current level of the game is displayed at the top middle of the screen.
+3. Current Lives
+	Number of lives left is displayed at the top left of the screen.
+
+/*SPLASH SCREEN*/
+Home page that explains how to play the game and documented cheat keys. It will stay visible until the player 
+presses the "enter" key.
+
+/*SOMETHING EXTRA*/
+I want to add the ability for the player to unlock different colored balls. These balls can only be 
+permanently unlocked if certain requirements are met. In addition, I want to add a key “t” that will 
+allow the player to toggle the appearance of the balls based on these unlocks. This adds a level of 
+achievement to the game while giving the player to customize the look of the game to their own liking. 
+
+In addition, I want to add music and sound effects to the action of a block being destroyed by the ball. 
+I believe that this addition will make the experience more interactive and more unique for the player, 
+thus enhancing the overall experience. 

@@ -1,0 +1,7 @@
+space space space space space space space space
+space blue red green green red blue space 
+space green blue green blue green blue space
+space blue green blue green blue green space 
+space green blue green blue green blue space
+
+
